@@ -1,0 +1,92 @@
+<!DOCTYPE html>
+<html lang="pt-br">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Acesso negado</title>
+
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Comic+Neue:wght@700&display=swap" rel="stylesheet">
+</head>
+
+<body>
+    <audio autoplay loop>
+        <source src="musica.mp3" type="audio/mpeg">
+    </audio>
+
+    <div>
+        <h1>E aí <span id="ip"></span></h1>
+        <img src="ospia.jpg">
+        <h1>Você não pode acessar esta página!</h1>
+        <a href="https://www.youtube.com/watch?v=Mxsr3cVFkUM&ab_channel=vidabandidahbl">
+            <p>Mais informações</p>
+        </a>
+    </div>
+
+    <script>
+        fetch('https://api.ipify.org?format=json')
+            .then(response => response.json())
+            .then(data => {
+                document.getElementById("ip").innerHTML = data.ip;
+            });
+    </script>
+
+    <style>
+        body {
+            background: linear-gradient(to right, #f00, #f0f, #00f, #0ff, #0f0, #ff0, #f00);
+            background-size: 1500% 1500%;
+            animation: gradient-background 15s ease infinite;
+        }
+
+        @keyframes gradient-background {
+            0% {
+                background-position: 0% 50%;
+            }
+
+            50% {
+                background-position: 100% 50%;
+            }
+
+            100% {
+                background-position: 0% 50%;
+            }
+        }
+
+        div {
+            position: absolute;
+            top: 50%;
+            left: 50%;
+            transform: translate(-50%, -50%);
+        }
+
+
+        img {
+            display: block;
+            margin: auto;
+            top: 0;
+            width: 500px;
+            height: 300px;
+            border: 6px solid blue;
+        }
+
+        h1,
+        span {
+            text-align: center;
+            color: yellow;
+            font-family: "Comic Neue";
+            -webkit-text-stroke-width: 1px;
+            -webkit-text-stroke-color: #000;
+
+        }
+
+        p {
+            text-align: center;
+            color: black;
+        }
+    </style>
+</body>
+
+</html>
